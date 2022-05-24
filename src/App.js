@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 
-function App() {
-  const [ likes, setLikes ] = useState(0);
-  const [ inputValue, setInputValue] = useState('Some text');
+import PostList from "./components/PostList";
 
-  const incr = () => setLikes(likes + 1);
-  const decr = () => setLikes(likes - 1);
+function App() {
+  const [ posts, setPosts ] = useState([
+    { id: 1, title: '1. JS', description: 'Description 1' },
+    { id: 2, title: '2. JS', description: 'Description 2' },
+    { id: 3, title: '3. JS', description: 'Description 3' }
+  ]);
 
   return (
     <div className="App">
-      <h1>{likes}</h1>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(event) => setInputValue(event.target.value)}/>
-      <button onClick={incr}>plus one</button>
-      <button onClick={decr}>minus one</button>
+      <PostList posts={ posts } title='Title'/>
     </div>
   );
 }
