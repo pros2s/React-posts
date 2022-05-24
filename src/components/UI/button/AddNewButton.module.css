@@ -1,0 +1,10 @@
+.post__new {
+  padding: 5px;
+
+  font-size: 15px;
+  color: #fff;
+
+  background-color: #51d262;
+  border: 1px solid #1a7827;
+  border-radius: 5px;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import PostList from "./components/PostList";
+import AddNewButton from './components/UI/button/AddNewButton';
 
 function App() {
   const [ posts, setPosts ] = useState([
@@ -10,8 +11,13 @@ function App() {
   ]);
 
   return (
-    <div className="App">
-      <PostList posts={ posts } title='Title'/>
+    <div className="container">
+      <form>
+        <input type="text" placeholder="Name"/>
+        <input type="text" placeholder="Description"/>
+        <AddNewButton>New post</AddNewButton>
+      </form>
+      <PostList posts={ posts } title='JS list'/>
     </div>
   );
 }

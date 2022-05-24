@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import DeleteButton from "./UI/button/DeleteButton";
 
-import '../styles.css';
+import './styles.css';
 
 const PostItem = ({ post }) => {
   const { title, description } = post;
@@ -13,7 +14,7 @@ const PostItem = ({ post }) => {
       </div>
 
       <div className="post__right">
-        <button className="post__delete">Delete</button>
+        <DeleteButton>Delete</DeleteButton>
       </div>
     </div>
   )

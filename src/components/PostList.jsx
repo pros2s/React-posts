@@ -1,11 +1,12 @@
 import React from "react";
 import PostItem from "./PostItem";
 
-import '../styles.css';
+import './styles.css';
 
-const PostList = ({ posts }) => {
+const PostList = ({ posts, title }) => {
   return (
-    <div className="container">
+    <div>
+      <h1 style={{ 'textAlign': 'center' }}>{ title }</h1>
       <div className="post__list">
         { posts.map((post) => <PostItem post={ post } key={ post.id }/>) }
       </div>
