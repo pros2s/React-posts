@@ -15,8 +15,8 @@ const PostList = ({ posts, remove }) => {
         { posts.map((post, i) => <PostItem remove={ remove } number={ i + 1 } post={ post } key={ post.id }/>) }
       </div>
     </div>
-  )
-}
+  );
+};
 
 
 export default PostList;

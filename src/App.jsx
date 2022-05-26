@@ -3,6 +3,9 @@ import React, { useState, useMemo } from 'react';
 import PostFilter from './components/PostFilter';
 import PostList from './components/PostList';
 import PostForm from './components/PostForm';
+import PostModal from './components/UI/modal/PostModal';
+
+import AddNewButton from './components/UI/button/AddNewButton';
 
 
 function App() {
@@ -12,6 +15,7 @@ function App() {
     { id: 3, title: 'c', description: 'c 3' }
   ]);
   const [ filter, setFilter ] = useState({ search: '', selectedSort: '' });
+  const [ showModal, setShowModal ] = useState(false);
 
 
   const sortedPosts = useMemo(() => {
@@ -27,6 +31,7 @@ function App() {
 
   const createPost = (newPost) => {
     setPosts([ ...posts, newPost ]);
+    setShowModal(false);
   };
 
   const removePost = (post) => {
@@ -40,7 +45,11 @@ function App() {
 
       <PostFilter filter={ filter } setFilter={ setFilter }/>
       <PostList remove={ removePost } posts={ filteredPosts }/>
-      <PostForm create={ createPost }/>
+
+      <AddNewButton onClick={ () => setShowModal(true) }>Add new post</AddNewButton>
+      <PostModal showModal={ showModal } setShowModal={ setShowModal }>
+        <PostForm create={ createPost }/>
+      </PostModal>
     </div>
   );
 }

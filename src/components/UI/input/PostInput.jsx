@@ -7,7 +7,7 @@ const PostInput = forwardRef(({ children, ...props }, ref) => {
     <input ref={ ref } className={ classes.post__input } { ...props }>
       { children }
     </input>
-  )
+  );
 });
 
 

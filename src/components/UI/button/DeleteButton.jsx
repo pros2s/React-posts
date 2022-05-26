@@ -7,8 +7,8 @@ const DeleteButton = ({ children, ...props }) => {
     <button className={ classes.post__delete } { ...props }>
       { children }
     </button>
-  )
-}
+  );
+};
 
 
 export default DeleteButton;

@@ -19,7 +19,7 @@ const PostItem = ({ post, number, remove }) => {
         <DeleteButton onClick={ () => remove(post) }>Delete</DeleteButton>
       </div>
     </div>
-  )
+  );
 };
 
 

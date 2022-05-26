@@ -16,7 +16,7 @@ const PostForm = ({ create }) => {
 
     setNewPost({ title: '', description: '' });
     inputRef.current.focus();
-  }
+  };
 
 
   return (
@@ -40,8 +40,8 @@ const PostForm = ({ create }) => {
         placeholder='Description'/>
       <AddNewButton onClick={ postNewPost }>New post</AddNewButton>
     </form>
-  )
-}
+  );
+};
 
 
 export default PostForm;

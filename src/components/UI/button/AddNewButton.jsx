@@ -7,8 +7,8 @@ const AddNewButton = ({ children, ...props }) => {
     <button className={ classes.post__new } { ...props }>
       { children }
     </button>
-  )
-}
+  );
+};
 
 
 export default AddNewButton;
