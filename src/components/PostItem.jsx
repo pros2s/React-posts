@@ -4,8 +4,9 @@ import DeleteButton from './UI/button/DeleteButton';
 import './styles.css';
 
 
-const PostItem = ({ post, number }) => {
+const PostItem = ({ post, number, remove }) => {
   const { title, description } = post;
+
 
   return (
     <div className='post__item'>
@@ -15,7 +16,7 @@ const PostItem = ({ post, number }) => {
       </div>
 
       <div className='post__right'>
-        <DeleteButton>Delete</DeleteButton>
+        <DeleteButton onClick={ () => remove(post) }>Delete</DeleteButton>
       </div>
     </div>
   )
