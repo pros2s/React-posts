@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react';
 import classes from './AddNewButton.module.css';
+
 
 const AddNewButton = ({ children, ...props }) => {
   return (
@@ -8,5 +9,6 @@ const AddNewButton = ({ children, ...props }) => {
     </button>
   )
 }
+
 
 export default AddNewButton;

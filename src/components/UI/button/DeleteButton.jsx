@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react';
 import classes from './DeleteButton.module.css';
+
 
 const DeleteButton = ({ children, ...props }) => {
   return (
@@ -8,5 +9,6 @@ const DeleteButton = ({ children, ...props }) => {
     </button>
   )
 }
+
 
 export default DeleteButton;

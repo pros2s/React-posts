@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import PostList from "./components/PostList";
+import PostList from './components/PostList';
 import AddNewButton from './components/UI/button/AddNewButton';
-import PostInput from "./components/UI/input/PostInput";
+import PostInput from './components/UI/input/PostInput';
+
 
 function App() {
   const [ posts, setPosts ] = useState([
@@ -25,10 +26,10 @@ function App() {
     setPosts([ ...posts, newPost ]);
     setNewPosts({ title: '', description: '' });
   }
-  
+
 
   return (
-    <div className="container">
+    <div className='container'>
       <PostList posts={ posts } title='JS list'/>
       <form style={{
         'display': 'flex',
@@ -39,14 +40,14 @@ function App() {
         <PostInput
           value={ newPosts.title }
           onChange={ (event) => setNewPosts({ ...newPosts, title: event.target.value }) }
-          type="text"
-          placeholder="Name"/>
+          type='text'
+          placeholder='Name'/>
 
         <PostInput
           value={ newPosts.description }
           onChange={ (event) => setNewPosts({ ...newPosts, description: event.target.value }) }
-          type="text"
-          placeholder="Description"/>
+          type='text'
+          placeholder='Description'/>
         <AddNewButton onClick={ postNewPost }>New post</AddNewButton>
       </form>
     </div>

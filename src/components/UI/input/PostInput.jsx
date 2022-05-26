@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react';
 import classes from './PostInput.module.css';
+
 
 const PostInput = ({ children, ...props }) => {
   return (
@@ -8,5 +9,6 @@ const PostInput = ({ children, ...props }) => {
     </input>
   )
 }
+
 
 export default PostInput;
