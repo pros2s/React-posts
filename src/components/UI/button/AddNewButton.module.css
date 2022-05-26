@@ -1,5 +1,6 @@
 .post__new {
   padding: 5px;
+  max-width: 200px;
 
   font-size: 15px;
   color: #fff;

@@ -1,0 +1,9 @@
+.post__input {
+  padding: 5px;
+  margin-bottom: 5px;
+
+  font-size: 15px;
+
+  border-radius: 5px;
+  border: 1px solid #1a7827;
+}
