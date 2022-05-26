@@ -5,6 +5,10 @@ import './styles.css';
 
 
 const PostList = ({ posts, remove }) => {
+  if (!posts.length) {
+    return <h1>Post list is empty! :{'('}</h1>;
+  };
+
   return (
     <div>
       <div className='post__list'>

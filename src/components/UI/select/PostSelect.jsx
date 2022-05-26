@@ -1,12 +1,13 @@
 import React from "react";
 
 
-const PostSelect = ({ options, defaultValue, value, onChange }) => {
+const PostSelect = ({ options, defaultValue, value, onChange, style }) => {
   return (
     <select
+      style={ style }
       value={ value }
       onChange={ (event) => onChange(event.target.value) }>
-        
+
         <option disabled value=''>{ defaultValue }</option>
         {
           options.map((option) =>

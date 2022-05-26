@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
-import PostSelect from './components/UI/select/PostSelect';
+import PostFilter from './components/PostFilter';
 import PostList from './components/PostList';
 import PostForm from './components/PostForm';
 
@@ -11,7 +11,19 @@ function App() {
     { id: 2, title: 'a', description: 'b 2' },
     { id: 3, title: 'c', description: 'c 3' }
   ]);
-  const [ selectedSort, setSelectedSort ] = useState('');
+  const [ filter, setFilter ] = useState({ search: '', selectedSort: '' });
+
+
+  const sortedPosts = useMemo(() => {
+    return filter.selectedSort
+      ? [ ...posts ].sort((a, b) => a[filter.selectedSort].localeCompare(b[filter.selectedSort]))
+      : posts
+  }, [ filter.selectedSort, posts ]);
+
+  const filteredPosts = useMemo(() => {
+    return sortedPosts.filter((post) => post.title.toLowerCase().includes(filter.search));
+  }, [ filter.search, sortedPosts ])
+
 
   const createPost = (newPost) => {
     setPosts([ ...posts, newPost ]);
@@ -21,35 +33,17 @@ function App() {
     setPosts(posts.filter((p) => p.id !== post.id));
   };
 
-  const sortPosts = (sort) => {
-    setSelectedSort(sort);
-    setPosts([ ...posts ].sort((a, b) => a[sort].localeCompare(b[sort])));
-  };
-
 
   return (
     <div className='container'>
       <h1 style={{ 'textAlign': 'center' }}>JS list</h1>
-      <div>
-        <PostSelect
-          value={ selectedSort }
-          onChange={ sortPosts }
-          defaultValue='Sort'
-          options={[
-            { value: 'title', name: 'By title' },
-            { value: 'description', name: 'By description' }
-          ]}/>
-      </div>
-      {
-        posts.length
-          ?
-        <PostList remove={ removePost } posts={ posts }/>
-          :
-        <h1>Post list is empty! :{'('}</h1>
-      }
+
+      <PostFilter filter={ filter } setFilter={ setFilter }/>
+      <PostList remove={ removePost } posts={ filteredPosts }/>
       <PostForm create={ createPost }/>
     </div>
   );
 }
+
 
 export default App;
