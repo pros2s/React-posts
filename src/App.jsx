@@ -22,7 +22,13 @@ function App() {
 
   return (
     <div className='container'>
-      <PostList remove={ removePost } posts={ posts } title='JS list'/>
+      {
+        posts.length
+          ?
+        <PostList remove={ removePost } posts={ posts } title='JS list'/>
+          :
+        <h1>Post list is empty! :{'('}</h1>
+      }
       <PostForm create={ createPost }/>
     </div>
   );
