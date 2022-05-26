@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import classes from './PostInput.module.css';
 
 
-const PostInput = ({ children, ...props }) => {
+const PostInput = forwardRef(({ children, ...props }, ref) => {
   return (
-    <input className={ classes.post__input } { ...props }>
+    <input ref={ ref } className={ classes.post__input } { ...props }>
       { children }
     </input>
   )
-}
+});
 
 
 export default PostInput;

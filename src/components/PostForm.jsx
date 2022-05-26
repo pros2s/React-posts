@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import AddNewButton from './UI/button/AddNewButton';
 import PostInput from './UI/input/PostInput';
@@ -6,13 +6,16 @@ import PostInput from './UI/input/PostInput';
 
 const PostForm = ({ create }) => {
   const [ post, setNewPost ] = useState({ title: '', description: '' });
+  const inputRef = useRef();
 
   const postNewPost = (e) => {
     e.preventDefault();
 
     const newPost = { ...post, id: Date.now() };
     create(newPost);
+
     setNewPost({ title: '', description: '' });
+    inputRef.current.focus();
   }
 
 
@@ -24,6 +27,7 @@ const PostForm = ({ create }) => {
       'maxWidth': '400px'
     }}>
       <PostInput
+        ref={ inputRef }
         value={ post.title }
         onChange={ (event) => setNewPost({ ...post, title: event.target.value }) }
         type='text'
