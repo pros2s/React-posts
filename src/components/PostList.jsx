@@ -3,8 +3,8 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import PostItem from './PostItem';
 
-import './styles.css';
-import './postAnimation.css';
+import '../styles/styles.css';
+import '../styles/postAnimation.css';
 
 
 const PostList = ({ posts, remove }) => {

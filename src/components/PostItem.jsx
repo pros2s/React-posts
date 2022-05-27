@@ -1,18 +1,18 @@
 import React from 'react';
 import DeleteButton from './UI/button/DeleteButton';
 
-import './styles.css';
+import '../styles/styles.css';
 
 
 const PostItem = ({ post, number, remove }) => {
-  const { title, description } = post;
+  const { title, body } = post;
 
 
   return (
     <div className='post__item'>
       <div className='post__left'>
         <h1 className='post__title'>{ number }. { title }</h1>
-        <p className='post__description'>{ description }</p>
+        <p className='post__description'>{ body }</p>
       </div>
 
       <div className='post__right'>

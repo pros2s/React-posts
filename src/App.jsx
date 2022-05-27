@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PostFilter from './components/PostFilter';
 import PostList from './components/PostList';
@@ -8,6 +8,7 @@ import PostModal from './components/UI/modal/PostModal';
 import { usePosts } from './hooks/usePosts';
 
 import AddNewButton from './components/UI/button/AddNewButton';
+import { PostService } from './API/PostService';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
   const [ filter, setFilter ] = useState({ search: '', selectedSort: '' });
   const [ showModal, setShowModal ] = useState(false);
   const filteredPosts = usePosts(posts, filter.selectedSort, filter.search);
+
+  useEffect(() => { fetchData() }, []);
 
 
   const createPost = (newPost) => {
@@ -24,6 +27,11 @@ function App() {
 
   const removePost = (post) => {
     setPosts(posts.filter((p) => p.id !== post.id));
+  };
+
+  async function fetchData() {
+    const posts = await PostService.getAll();
+    setPosts(posts);
   };
 
 

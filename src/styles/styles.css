@@ -25,16 +25,28 @@ button {
   margin-top: 10px;
   margin-bottom: 10px;
 
-  padding: 10px;
+  padding: 20px;
+  padding-top: 10px;
 
   border: 2px solid rgb(197, 197, 197);
   border-radius: 5px;
+}
+
+.post__title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .post__description {
   font-size: 20px;
 }
 
+.post__left {
+  width: 85%;
+}
+
 .post__right {
+  width: 15%;
   position: relative;
 }

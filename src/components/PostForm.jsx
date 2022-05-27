@@ -5,7 +5,7 @@ import PostInput from './UI/input/PostInput';
 
 
 const PostForm = ({ create }) => {
-  const [ post, setNewPost ] = useState({ title: '', description: '' });
+  const [ post, setNewPost ] = useState({ title: '', body: '' });
   const inputRef = useRef();
 
   const postNewPost = (e) => {
@@ -14,7 +14,7 @@ const PostForm = ({ create }) => {
     const newPost = { ...post, id: Date.now() };
     create(newPost);
 
-    setNewPost({ title: '', description: '' });
+    setNewPost({ title: '', body: '' });
     inputRef.current.focus();
   };
 
@@ -34,8 +34,8 @@ const PostForm = ({ create }) => {
         placeholder='Name'/>
 
       <PostInput
-        value={ post.description }
-        onChange={ (event) => setNewPost({ ...post, description: event.target.value }) }
+        value={ post.body }
+        onChange={ (event) => setNewPost({ ...post, body: event.target.value }) }
         type='text'
         placeholder='Description'/>
       <AddNewButton onClick={ postNewPost }>New post</AddNewButton>
