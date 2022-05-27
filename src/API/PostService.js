@@ -2,8 +2,13 @@ import axios from 'axios';
 
 
 export class PostService {
-  static async getAll() {
-    const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    return res.data;
+  static async getAll(limit = 10, page = 1) {
+    const res = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+      params: {
+        _limit: limit,
+        _page: page
+      }
+    });
+    return res;
   };
 };

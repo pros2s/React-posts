@@ -25,7 +25,7 @@ const PostList = ({ err, posts, remove }) => {
                 timeout={ 450 }
                 classNames='post__animation'
               >
-                <PostItem remove={ remove } number={ i + 1 } post={ post }/>
+                <PostItem remove={ remove } number={ post.id } post={ post }/>
               </CSSTransition>
             ))
           }
