@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import classes from './PostInput.module.css';
+import classes from './PostInput.module.scss';
 
 
 const PostInput = forwardRef(({ children, ...props }, ref) => {

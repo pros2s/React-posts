@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './DeleteButton.module.css';
+import classes from './DeleteButton.module.scss';
 
 
 const DeleteButton = ({ children, ...props }) => {

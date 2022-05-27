@@ -1,5 +1,5 @@
 import React from "react";
-import classes from './PostModal.module.css';
+import classes from './PostModal.module.scss';
 
 
 const PostModal = ({ children, showModal, setShowModal }) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './AddNewButton.module.css';
+import classes from './AddNewButton.module.scss';
 
 
 const AddNewButton = ({ children, ...props }) => {
