@@ -14,9 +14,8 @@ button {
 
 
 .container {
-  margin-top: 20px;
-  margin-left: 400px;
-  margin-right: 400px;
+  margin: 20px auto;
+  max-width: 800px;
 }
 
 .post__item {

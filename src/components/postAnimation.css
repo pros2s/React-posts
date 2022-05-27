@@ -1,0 +1,21 @@
+.post__animation-enter {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
+.post__animation-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 350ms ease-in;
+}
+
+.post__animation-exit {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.post__animation-exit-active {
+  transform: scale(.7);
+  opacity: 0;
+  transition: all 450ms ease-in;
+}
