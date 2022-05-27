@@ -7,8 +7,8 @@ import '../styles/styles.css';
 import '../styles/postAnimation.css';
 
 
-const PostList = ({ posts, remove }) => {
-  if (!posts.length) {
+const PostList = ({ err, posts, remove }) => {
+  if (!posts.length && !err) {
     return (
       <h1>Post list is empty! :{'('}</h1>
     );

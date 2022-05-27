@@ -5,8 +5,11 @@ import PostList from './components/PostList';
 import PostForm from './components/PostForm';
 import PostModal from './components/UI/modal/PostModal';
 import PostLoader from './components/UI/loader/PostLoader';
+import PostError from './components/UI/errorer/PostError';
 
 import { usePosts } from './hooks/usePosts';
+import useFetch from './hooks/useFetch';
+
 import AddNewButton from './components/UI/button/AddNewButton';
 import { PostService } from './API/PostService';
 
@@ -14,10 +17,13 @@ function App() {
   const [ posts, setPosts ] = useState([]);
   const [ filter, setFilter ] = useState({ search: '', selectedSort: '' });
   const [ showModal, setShowModal ] = useState(false);
-  const [ isLoading, setIsLoading ] = useState(false);
+  const [ fetchData, isLoading, isError ] = useFetch(async () => {
+    const posts = await PostService.getAll();
+    setPosts(posts);
+  });
   const filteredPosts = usePosts(posts, filter.selectedSort, filter.search);
 
-  useEffect(() => { fetchData() }, []);
+  useEffect(() => { fetchData() }, []);// eslint-disable-line
 
 
   const createPost = (newPost) => {
@@ -29,27 +35,19 @@ function App() {
     setPosts(posts.filter((p) => p.id !== post.id));
   };
 
-  async function fetchData() {
-    setIsLoading(true);
-    setTimeout(async () => {
-      const posts = await PostService.getAll();
-      setPosts(posts);
-      setIsLoading(false);
-    }, 10000);
-  };
-
 
   return (
     <div className='container'>
       <h1 style={{ 'textAlign': 'center' }}>JS list</h1>
 
       <PostFilter filter={ filter } setFilter={ setFilter }/>
+      { isError && <PostError/> }
       { isLoading
         ? <PostLoader/>
-        : <PostList remove={ removePost } posts={ filteredPosts }/>
+        : <PostList err={ isError } remove={ removePost } posts={ filteredPosts }/>
       }
 
-      <AddNewButton onClick={ () => setShowModal(true) }>Add new post</AddNewButton>
+      <AddNewButton disabled={ isError } onClick={ () => setShowModal(true) }>Add new post</AddNewButton>
       <PostModal showModal={ showModal } setShowModal={ setShowModal }>
         <PostForm create={ createPost }/>
       </PostModal>
