@@ -1,23 +1,26 @@
-.error-page {
+.error_posts {
   display: flex;
   justify-content: center;
   flex-direction: column;
 
-  margin: 20px auto;
-
-  width: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.error-page__image {
+.error_posts__image {
   display: block;
 
   width: 100px;
   margin: 0 auto;
 }
 
-.error-page__message {
+.error_posts__message {
   margin-top: 10px;
   font-size: 20px;
 
   text-align: center;
+
+  span {
+    font-style: italic;
+  }
 }

@@ -1,10 +1,12 @@
 import error from '../../../media/error.gif';
+import classes from './PostError.module.scss';
 
 
 const PostError = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
-      <img src={ error } alt='error gif'/>
+    <div className={ classes.error_posts }>
+      <img className={ classes.error_posts__image } src={ error } alt='error gif'/>
+      <p className={ classes.error_posts__message }>Error with post fetch <span>(check your url)</span></p>
     </div>
   );
 };

@@ -21,8 +21,7 @@ const PostFilter = ({ filter, setFilter }) => {
         options={[
           { value: 'title', name: 'By title' },
           { value: 'body', name: 'By description' }
-        ]}
-        style={{ 'position': 'absolute', 'right': 0 }}/>
+        ]}/>
     </div>
   );
 };

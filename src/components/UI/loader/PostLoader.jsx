@@ -1,9 +1,10 @@
 import loading from '../../../media/loading.gif';
+import classes from './PostLoader.module.scss';
 
 
 const PostLoader = () => {
   return (
-  <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
+  <div className={ classes.loading }>
     <img src={ loading } alt='loading gif'/>
     </div>
   );

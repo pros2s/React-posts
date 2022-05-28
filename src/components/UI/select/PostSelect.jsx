@@ -1,10 +1,11 @@
 import React from "react";
+import classes from './PostSelect.module.scss';
 
 
-const PostSelect = ({ options, defaultValue, value, onChange, style }) => {
+const PostSelect = ({ options, defaultValue, value, onChange }) => {
   return (
     <select
-      style={ style }
+      className={ classes.select }
       value={ value }
       onChange={ (event) => onChange(event.target.value) }>
 
