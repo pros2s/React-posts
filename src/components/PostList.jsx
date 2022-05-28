@@ -3,7 +3,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import PostItem from './PostItem';
 
-import '../styles/styles.scss';
+import '../styles/post.scss';
 import '../styles/postAnimation.scss';
 
 

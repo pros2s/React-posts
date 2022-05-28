@@ -1,23 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import About from './pages/About';
-import Error from './pages/Error';
-import Posts from './pages/Posts';
+import AppRouter from './components/AppRouter';
+import './styles/main.scss';
 
 
 function App() {
   return (
     <BrowserRouter>
       <div className='container'>
-        <Routes>
-          <Route path='/posts' element={ <Posts/> }/>
-          <Route path='/about' element={ <About/> }/>
-          <Route path='/error' element={ <Error/> }/>
-
-          <Route path='/' element={ <Navigate replace to='/posts'/> }/>
-          <Route path='*' element={ <Error/> }/>
-        </Routes>
+        <AppRouter/>
       </div>
     </BrowserRouter>
   );

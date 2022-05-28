@@ -1,7 +1,7 @@
 import React from 'react';
 import DeleteButton from './UI/button/DeleteButton';
 
-import '../styles/styles.scss';
+import '../styles/post.scss';
 
 
 const PostItem = ({ post, number, remove }) => {
