@@ -1,0 +1,23 @@
+.error {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  margin: 20px auto;
+
+  width: 300px;
+}
+
+.error__image {
+  display: block;
+
+  width: 100px;
+  margin: 0 auto;
+}
+
+.error__message {
+  margin-top: 10px;
+  font-size: 20px;
+
+  text-align: center;
+}
