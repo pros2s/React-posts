@@ -4,15 +4,15 @@ import AddNewButton from './UI/button/AddNewButton';
 import PostInput from './UI/input/PostInput';
 
 
-const PostForm = ({ create }) => {
+const PostForm = ({ total, create }) => {
   const [ post, setNewPost ] = useState({ title: '', body: '' });
   const inputRef = useRef();
 
   const postNewPost = (e) => {
     e.preventDefault();
 
-    const newPost = { ...post, id: Date.now() };
-    create(newPost);
+    const newPost = { ...post, id: +total + 1 };
+    create(newPost, ++total);
 
     setNewPost({ title: '', body: '' });
     inputRef.current.focus();
