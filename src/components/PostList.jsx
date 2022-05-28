@@ -3,7 +3,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import PostItem from './PostItem';
 
-import '../styles/post.scss';
+import '../styles/posts.scss';
 import '../styles/postAnimation.scss';
 
 
@@ -16,7 +16,7 @@ const PostList = ({ err, posts, remove }) => {
 
   return (
     <div>
-      <div className='post__list'>
+      <div className='posts__list'>
         <TransitionGroup>
           {
             posts.map((post, i) => (

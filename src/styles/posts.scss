@@ -1,4 +1,4 @@
-.post__item {
+.posts__item {
   display: flex;
   justify-content: space-between;
 
@@ -10,23 +10,25 @@
 
   border: 2px solid rgb(197, 197, 197);
   border-radius: 5px;
+
+  cursor: pointer;
 }
 
-.post__title {
+.posts__title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.post__description {
+.posts__description {
   font-size: 20px;
 }
 
-.post__left {
+.posts__left {
   width: 85%;
 }
 
-.post__right {
+.posts__right {
   width: 15%;
   position: relative;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import PostInput from './UI/input/PostInput';
 import PostSelect from './UI/select/PostSelect';

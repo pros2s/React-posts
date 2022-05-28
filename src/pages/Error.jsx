@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import error from '../media/error.gif';
 import './error.scss';
@@ -6,9 +6,9 @@ import './error.scss';
 
 const Error = () => {
   return (
-    <div className="error-page">
-      <img className="error-page__image" src={ error } alt=' error gif '/>
-      <p className="error-page__message">Page has not found</p>
+    <div className='error-page'>
+      <img className='error-page__image' src={ error } alt=' error gif '/>
+      <p className='error-page__message'>Page has not found</p>
     </div>
   );
 };

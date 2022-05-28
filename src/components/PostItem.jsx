@@ -1,22 +1,24 @@
 import React from 'react';
-import DeleteButton from './UI/button/DeleteButton';
+import { useNavigate } from 'react-router-dom';
 
-import '../styles/post.scss';
+import DeleteButton from './UI/button/DeleteButton';
+import '../styles/posts.scss';
 
 
 const PostItem = ({ post, number, remove }) => {
-  const { title, body } = post;
+  const { id, title, body } = post;
+  const route = useNavigate();
 
 
   return (
-    <div className='post__item'>
-      <div className='post__left'>
-        <h1 className='post__title'>{ number }. { title }</h1>
-        <p className='post__description'>{ body }</p>
+    <div className='posts__item' onClick={ () => route(`/posts/${ id }`) }>
+      <div className='posts__left'>
+        <h1 className='posts__title'>{ number }. { title }</h1>
+        <p className='posts__description'>{ body }</p>
       </div>
 
-      <div className='post__right'>
-        <DeleteButton onClick={ () => remove(post) }>Delete</DeleteButton>
+      <div className='posts__right'>
+        <DeleteButton onClick={ (e) => remove(post, e) }>Delete</DeleteButton>
       </div>
     </div>
   );

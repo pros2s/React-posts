@@ -13,7 +13,7 @@ import useFetch from '../hooks/useFetch';
 
 import AddNewButton from '../components/UI/button/AddNewButton';
 import { PostService } from '../API/PostService';
-import { getTotalPages } from '../utils/pages';
+import { getTotalPages } from '../utils/getTotalPages';
 
 import '../styles/footer.scss';
 
@@ -24,7 +24,7 @@ const Posts = () => {
 
   const [ totalPages, setTotalPages ] = useState(0);
   const [ totalCount, setTotalCount ] = useState(0);
-  const [ limit, setLimit ] = useState(10);
+  const [ limit ] = useState(10);
   const [ page, setPage ] = useState(1);
 
   const filteredPosts = usePosts(posts, filter.selectedSort, filter.search);
@@ -47,7 +47,8 @@ const Posts = () => {
     setTotalCount(total);
   };
 
-  const removePost = (post) => {
+  const removePost = (post, e) => {
+    e.stopPropagation();
     setPosts(posts.filter((p) => p.id !== post.id));
   };
 
@@ -58,8 +59,6 @@ const Posts = () => {
 
   return (
     <>
-      <h1 style={{ 'textAlign': 'center' }}>JS list</h1>
-
       <PostFilter filter={ filter } setFilter={ setFilter }/>
       { isError && <PostError/> }
       { isLoading
@@ -71,7 +70,7 @@ const Posts = () => {
         <PostForm total={ totalCount } create={ createPost }/>
       </PostModal>
 
-      <div className="footer">
+      <div className='footer'>
         <AddNewButton disabled={ isError } onClick={ () => setShowModal(true) }>Add new post</AddNewButton>
         <PostPagination page={ page } totalPages={ totalPages } currentPage={ currentPage }/>
       </div>
