@@ -14,6 +14,7 @@ const NavBar = () => {
   const logOut = (event) => {
     event.preventDefault();
     setIsAuth(false);
+    localStorage.removeItem('isAuth');
   };
 
   return (

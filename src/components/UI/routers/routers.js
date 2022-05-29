@@ -22,5 +22,5 @@ export const privateRoutes = [
 export const publicRoutes = [
   { path: '/login', element: <Login/>, exact: true },
   { path: '/error', element: <Error/>, exact: true },
-  { path: '*', element: <Login/>, exact: true }
+  { path: '*', element: <Navigate replace to='/login'/>, exact: true }
 ];
