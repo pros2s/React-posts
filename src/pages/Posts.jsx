@@ -43,8 +43,8 @@ const Posts = () => {
   });
 
   useEffect(() => {
-    setPosts([ ...posts ].slice(0, limit));
     setPage(1);
+    fetchData();
   }, [ limit ]);// eslint-disable-line
 
   useEffect(() => {
