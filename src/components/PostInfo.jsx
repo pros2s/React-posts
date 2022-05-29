@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { PostService } from '../API/PostService';
 import useFetch from '../hooks/useFetch';
 
+import '../styles/comments.scss';
+import '../styles/post.scss';
+
 
 const PostInfo = ({ postInfo, postId }) => {
   const [ commentsList, setCommentsList ] = useState([]);
@@ -17,17 +20,16 @@ const PostInfo = ({ postInfo, postId }) => {
 
   return (
     <div className='post'>
-      <h2> Post { postInfo.id }</h2>
+      <h2 className='post__title'>
+        Comments about <span className='post__number'>post { postInfo.id }</span>
+      </h2>
       {
         commentsList.map((com) => {
           return (
-            <div key={ com.email }>
-              <p>{ com.name }</p>
-              <hr />
-              <p>{ com.email }</p>
-              <hr />
-              <p>{ com.body }</p>
-              <br />
+            <div className='comments' key={ com.email }>
+              <h3 className='comments__name'>{ com.name }</h3>
+              <p className='comments__email'>{ com.email }</p>
+              <p className='comments__body'>{ com.body }</p>
             </div>
           );
         })
