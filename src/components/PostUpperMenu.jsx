@@ -26,7 +26,7 @@ const PostUpperMenu = ({ filter, setFilter, limit, setLimit }) => {
             { value: 10, name: 'By 10' },
             { value: 25, name: 'By 25' },
             { value: 50, name: 'By 50' },
-            { value: -1, name: 'all' }
+            { value: -1, name: 'show all' }
         ]}/>
 
         <PostSelect
@@ -35,7 +35,8 @@ const PostUpperMenu = ({ filter, setFilter, limit, setLimit }) => {
           defaultValue='Sort'
           options={[
             { value: 'title', name: 'By title' },
-            { value: 'body', name: 'By description' }
+            { value: 'body', name: 'By description' },
+            { value: 'all', name: 'without sort' }
         ]}/>
       </div>
     </div>
