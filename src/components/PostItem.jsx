@@ -13,7 +13,7 @@ const PostItem = ({ post, number, remove }) => {
   return (
     <div className='posts__item' onClick={ () => route(`/posts/${ id }`) }>
       <div className='posts__left'>
-        <h1 className='posts__title'>{ number }. { title }</h1>
+        <h1 className='posts__title' title={ title }>{ number }. { title }</h1>
         <p className='posts__description'>{ body }</p>
       </div>
 

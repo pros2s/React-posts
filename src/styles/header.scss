@@ -2,4 +2,8 @@
   text-decoration: none;
   color: #000;
   text-align: center;
+
+  &:hover {
+    color: inherit;
+  }
 }

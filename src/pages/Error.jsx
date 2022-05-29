@@ -1,7 +1,7 @@
 import React from 'react';
 
 import error from '../media/error.gif';
-import './error.scss';
+import '../styles/error-page.scss';
 
 
 const Error = () => {

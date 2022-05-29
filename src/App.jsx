@@ -1,22 +1,32 @@
-import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
+import { AuthContext } from './context/context';
 
 import AppRouter from './components/AppRouter';
+import NavBar from './components/NavBar';
+
 import './styles/main.scss';
 import './styles/header.scss';
 
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Link className='header-link' to='/'>
-        <h1>Posts</h1>
-      </Link>
+  const [ isAuth, setIsAuth ] = useState(false);
 
-      <div className='container'>
-        <AppRouter/>
-      </div>
-    </BrowserRouter>
+  return (
+    <AuthContext.Provider value={{
+        isAuth,
+        setIsAuth
+      }}>
+        <BrowserRouter>
+
+          <div className='container'>
+            <NavBar/>
+            <AppRouter/>
+          </div>
+
+        </BrowserRouter>
+    </AuthContext.Provider>
   );
 };
 

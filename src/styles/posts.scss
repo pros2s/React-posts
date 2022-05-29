@@ -18,10 +18,13 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  font-size: 30px;
 }
 
 .posts__description {
   font-size: 20px;
+  line-height: 1.2;
 }
 
 .posts__left {
