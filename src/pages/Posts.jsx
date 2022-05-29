@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import PostFilter from '../components/PostFilter';
+import PostUpperMenu from '../components/PostUpperMenu';
 import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
 import PostModal from '../components/UI/modal/PostModal';
@@ -26,7 +26,7 @@ const Posts = () => {
 
   const [ totalPages, setTotalPages ] = useState(0);
   const [ totalCount, setTotalCount ] = useState(0);
-  const [ limit ] = useState(10);
+  const [ limit, setLimit ] = useState(10);
   const [ page, setPage ] = useState(1);
 
   const loadRef = useRef();
@@ -42,7 +42,7 @@ const Posts = () => {
     setTotalPages(getTotalPages(total, limit));
   });
 
-  useEffect(() => { fetchData() }, [ page ]);// eslint-disable-line
+  useEffect(() => { fetchData() }, [ page, limit ]);// eslint-disable-line
 
   useObserver(loadRef, isLoading, (page < totalPages) , () => { setPage(page + 1); });
 
@@ -70,7 +70,12 @@ const Posts = () => {
       { isError && <PostError/> }
       { isLoading && <PostLoader/> }
 
-      <PostFilter filter={ filter } setFilter={ setFilter }/>
+      <PostUpperMenu
+        filter={ filter }
+        setFilter={ setFilter }
+        limit={ limit }
+        setLimit={ setLimit }/>
+
       <PostList err={ isError } remove={ removePost } posts={ filteredPosts }/>
 
       <PostModal showModal={ showModal } setShowModal={ setShowModal }>
