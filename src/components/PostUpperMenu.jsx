@@ -13,7 +13,7 @@ const PostUpperMenu = ({ filter, setFilter, limit, setLimit }) => {
     <div className='menu'>
       <PostInput
         value={ search }
-        onChange={ (event) => setFilter({ ...filter, search: event.target.value}) }
+        onChange={ (event) => setFilter({ ...filter, search: event.target.value }) }
         placeholder='Search'/>
 
       <div className='menu__selects'>

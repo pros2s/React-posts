@@ -43,13 +43,12 @@ const Posts = () => {
   });
 
   useEffect(() => { fetchData() }, [ page, limit ]);// eslint-disable-line
-
-  useObserver(loadRef, isLoading, (page < totalPages) , () => { setPage(page + 1); });
+  useObserver(loadRef, isLoading, (page < totalPages) , () => { setPage(page + 1); }, filter.search);
 
 
   //functions
   const createPost = (newPost, total) => {
-    setPosts([ ...posts, newPost ]);
+    setPosts([ newPost, ...posts ]);
     setShowModal(false);
     setTotalCount(total);
   };
@@ -76,14 +75,6 @@ const Posts = () => {
         limit={ limit }
         setLimit={ setLimit }/>
 
-      <PostList err={ isError } remove={ removePost } posts={ filteredPosts }/>
-
-      <PostModal showModal={ showModal } setShowModal={ setShowModal }>
-        <PostForm total={ totalCount } create={ createPost }/>
-      </PostModal>
-
-      <div className="loadMore" ref={ loadRef }/>
-
       <div className='footer'>
         <AddNewButton
           disabled={ isError }
@@ -91,11 +82,19 @@ const Posts = () => {
             Add new post
         </AddNewButton>
 
-        <PostPagination
+        {/* <PostPagination
           page={ page }
           totalPages={ totalPages }
-          currentPage={ currentPage }/>
+          currentPage={ currentPage }/> */}
       </div>
+
+      <PostList err={ isError } remove={ removePost } posts={ filteredPosts }/>
+
+      <PostModal showModal={ showModal } setShowModal={ setShowModal }>
+        <PostForm total={ totalCount } create={ createPost }/>
+      </PostModal>
+
+      <div className="loadMore" ref={ loadRef }/>
     </>
   );
 };

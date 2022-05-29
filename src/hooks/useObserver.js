@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 
-export const useObserver = (loadRef, isLoading, canLoad, callback) => {
+export const useObserver = (loadRef, isLoading, canLoad, callback, char) => {
   const observer = useRef();
 
   useEffect(() => {
@@ -9,10 +9,10 @@ export const useObserver = (loadRef, isLoading, canLoad, callback) => {
     if (observer.current) observer.current.disconnect();
 
     const cb = (entries, observer) => {
-      if (entries[0].isIntersecting && canLoad) callback();
+      if (entries[0].isIntersecting && canLoad && !char) callback();
     };
 
     observer.current = new IntersectionObserver(cb);
     observer.current.observe(loadRef.current);
-  }, [ isLoading ]);//eslint-disable-line
+  }, [ isLoading, char ]);//eslint-disable-line
 };
