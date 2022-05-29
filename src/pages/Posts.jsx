@@ -26,7 +26,7 @@ const Posts = () => {
 
   const [ totalPages, setTotalPages ] = useState(0);
   const [ totalCount, setTotalCount ] = useState(0);
-  const [ limit, setLimit ] = useState(10);
+  const [ limit, setLimit ] = useState(5);
   const [ page, setPage ] = useState(1);
 
   const loadRef = useRef();
@@ -42,7 +42,15 @@ const Posts = () => {
     setTotalPages(getTotalPages(total, limit));
   });
 
-  useEffect(() => { fetchData() }, [ page, limit ]);// eslint-disable-line
+  useEffect(() => {
+    setPosts([ ...posts ].slice(0, limit));
+    setPage(1);
+  }, [ limit ]);// eslint-disable-line
+
+  useEffect(() => {
+    fetchData();
+  }, [ page ]);// eslint-disable-line
+
   useObserver(loadRef, isLoading, (page < totalPages) , () => { setPage(page + 1); }, filter.search);
 
 
