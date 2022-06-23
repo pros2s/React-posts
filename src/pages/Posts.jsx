@@ -6,7 +6,7 @@ import PostForm from '../components/PostForm';
 import PostModal from '../components/UI/modal/PostModal';
 import PostLoader from '../components/UI/loader/PostLoader';
 import PostError from '../components/UI/errorer/PostError';
-import PostPagination from '../components/UI/pagination/PostPagination';
+// import PostPagination from '../components/UI/pagination/PostPagination';
 
 import { usePosts } from '../hooks/usePosts';
 import { useObserver } from '../hooks/useObserver';
@@ -66,9 +66,9 @@ const Posts = () => {
     setPosts(posts.filter((p) => p.id !== post.id));
   };
 
-  const currentPage = (curPage) => {
-    setPage(curPage);
-  };
+  // const currentPage = (curPage) => {
+  //   setPage(curPage);
+  // };
 
 
   //render

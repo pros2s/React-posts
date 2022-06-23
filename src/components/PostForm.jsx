@@ -21,10 +21,6 @@ const PostForm = ({ total, create }) => {
 
   return (
     <form style={{
-      'display': 'flex',
-      'flexDirection': 'column',
-      'marginTop': '20px',
-      'maxWidth': '400px'
     }}>
       <PostInput
         ref={ inputRef }
